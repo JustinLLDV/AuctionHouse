@@ -5,7 +5,7 @@ projects:
     icon: icon.png
     libs:
     - src: SOF3/await-generator/await-generator
-      version: ^3.1.0
+      version: ^3.5.0
     - src: poggit/libasynql/libasynql
       version: ^4.1.6
     - src: muqsit/invmenu/InvMenu
