@@ -6,6 +6,8 @@ namespace shock95x\auctionhouse\commands;
 use CortexPE\Commando\BaseCommand;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
+use pocketmine\plugin\PluginBase;
+use shock95x\auctionhouse\AuctionHouse;
 use shock95x\auctionhouse\commands\subcommand\AboutCommand;
 use shock95x\auctionhouse\commands\subcommand\AdminCommand;
 use shock95x\auctionhouse\commands\subcommand\CategoryCommand;
@@ -21,16 +23,16 @@ use shock95x\auctionhouse\menu\type\AHMenu;
 
 class AHCommand extends BaseCommand {
 
-	protected function prepare(): void {
-		$this->registerSubCommand(new ShopCommand("shop", "Shows AH shop menu"));
-		$this->registerSubCommand(new AdminCommand("admin", "Opens AH admin menu"));
-		$this->registerSubCommand(new SellCommand("sell", "Sell item in hand to the AH"));
-		$this->registerSubCommand(new CategoryCommand("category", "Opens category menu"));
-		$this->registerSubCommand(new ListingsCommand("listings", "Shows player listings"));
-		$this->registerSubCommand(new ExpiredCommand("expired", "Shows expired listings"));
-		$this->registerSubCommand(new ReloadCommand("reload", "Reload plugin configuration files"));
-		$this->registerSubCommand(new AboutCommand("about", "Plugin information"));
-		$this->registerSubCommand(new ConvertCommand("convert", "Legacy DB conversion"));
+    protected function prepare(): void {
+		$this->registerSubCommand(new ShopCommand(AuctionHouse::getInstance(), "shop", "Shows AH shop menu"));
+		$this->registerSubCommand(new AdminCommand(AuctionHouse::getInstance(),"admin", "Opens AH admin menu"));
+		$this->registerSubCommand(new SellCommand(AuctionHouse::getInstance(),"sell", "Sell item in hand to the AH"));
+		$this->registerSubCommand(new CategoryCommand(AuctionHouse::getInstance(),"category", "Opens category menu"));
+		$this->registerSubCommand(new ListingsCommand(AuctionHouse::getInstance(),"listings", "Shows player listings"));
+		$this->registerSubCommand(new ExpiredCommand(AuctionHouse::getInstance(),"expired", "Shows expired listings"));
+		$this->registerSubCommand(new ReloadCommand(AuctionHouse::getInstance(),"reload", "Reload plugin configuration files"));
+		$this->registerSubCommand(new AboutCommand(AuctionHouse::getInstance(),"about", "Plugin information"));
+		$this->registerSubCommand(new ConvertCommand(AuctionHouse::getInstance(),"convert", "Legacy DB conversion"));
 	}
 
 	public function onRun(CommandSender $sender, string $aliasUsed, array $args): void {

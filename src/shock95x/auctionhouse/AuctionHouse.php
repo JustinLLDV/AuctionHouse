@@ -5,7 +5,6 @@ namespace shock95x\auctionhouse;
 
 use CortexPE\Commando\exception\HookAlreadyRegistered;
 use CortexPE\Commando\PacketHooker;
-use JackMD\UpdateNotifier\UpdateNotifier;
 use muqsit\invmenu\InvMenuHandler;
 use pocketmine\block\tile\TileFactory;
 use pocketmine\data\bedrock\EnchantmentIdMap;
@@ -79,7 +78,6 @@ class AuctionHouse extends PluginBase {
 			}
 			Settings::setCurrencySymbol($this->economyProvider->getCurrencySymbol());
 		}), 1);
-		UpdateNotifier::checkUpdate($this->getDescription()->getName(), $this->getDescription()->getVersion());
 		if($pluginManager->getPlugin("InvCrashFix") == null) {
 			$this->getLogger()->warning("InvCrashFix is required to fix menu issues on PM4, download it here: https://poggit.pmmp.io/ci/Muqsit/InvCrashFix");
 		}
