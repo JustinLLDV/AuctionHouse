@@ -12,6 +12,7 @@ use pocketmine\item\enchantment\Enchantment;
 use pocketmine\item\enchantment\ItemFlags;
 use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\ClosureTask;
+use pocketmine\Server;
 use pocketmine\utils\SingletonTrait;
 use shock95x\auctionhouse\commands\AHCommand;
 use shock95x\auctionhouse\database\Database;
@@ -36,6 +37,10 @@ class AuctionHouse extends PluginBase {
 	private const RESOURCES = ["statements/mysql.sql" => true, "statements/sqlite.sql" => true, "language/en_US.yml" => false, "language/ru_RU.yml" => false, "language/de_DE.yml" => false];
 
 	public function onLoad(): void {
+
+        $this->getLogger()->warning("AuctionHouse is currently disabled. We are working on fixing it.");
+        return;
+
 		self::setInstance($this);
 		$this->saveDefaultConfig();
 		foreach(self::RESOURCES as $file => $r) $this->saveResource($file, $r);
@@ -47,6 +52,10 @@ class AuctionHouse extends PluginBase {
 	 * @throws HookAlreadyRegistered
 	 */
 	public function onEnable(): void {
+
+        $this->getLogger()->warning("AuctionHouse is currently disabled. We are working on fixing it.");
+        return;
+
 		Settings::init($this->getConfig());
 		Locale::init($this);
 
