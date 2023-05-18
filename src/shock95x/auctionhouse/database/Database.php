@@ -80,7 +80,7 @@ class Database {
 	}
 
 	public function asyncSelectRaw(string $query, array $args = []): Generator {
-		$this->connector->executeSelectRaw($query, $args, yield, yield Await::REJECT);
+		$this->connector->executeSelect($query, $args, yield, yield Await::REJECT);
 		return yield Await::ONCE;
 	}
 
@@ -90,12 +90,12 @@ class Database {
 	}
 
 	public function asyncGenericRaw(string $query, array $args = []): Generator {
-		$this->connector->executeGenericRaw($query, $args, yield, yield Await::REJECT);
+		$this->connector->executeGeneric($query, $args, yield, yield Await::REJECT);
 		return yield Await::ONCE;
 	}
 
 	public function asyncChangeRaw(string $query, array $args = []): Generator {
-		$this->connector->executeChangeRaw($query, $args, yield, yield Await::REJECT);
+		$this->connector->executeChange($query, $args, yield, yield Await::REJECT);
 		return yield Await::ONCE;
 	}
 
