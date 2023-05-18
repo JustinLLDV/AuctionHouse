@@ -14,7 +14,7 @@ projects:
     - src: ifera-mc/UpdateNotifier/UpdateNotifier
       version: ^2.2.0
       branch: API-4.0.0
-    - src: CortexPE/Commando/Commando
+    - src: Paroxity/Commando/Commando
+      branch: PM-4.0
       version: ^3.0.0
-      branch: PM4
 ...
