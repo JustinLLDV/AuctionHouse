@@ -95,6 +95,7 @@ class AuctionHouse extends PluginBase {
 	}
 
 	public function onDisable(): void {
+        return;
 		self::reset();
 		$this->database?->close();
 	}
@@ -105,6 +106,7 @@ class AuctionHouse extends PluginBase {
 	}
 
 	public function disable(): void {
+        return;
 		$this->getServer()->getPluginManager()->disablePlugin($this);
 	}
 
