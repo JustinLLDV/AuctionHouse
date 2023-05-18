@@ -22,4 +22,9 @@ class CategoryArgument extends StringEnumArgument {
 	public function parse(string $argument, CommandSender $sender): ICategory {
 		return Category::get($argument);
 	}
+
+    public function getEnumName(): string
+    {
+        return "category";
+    }
 }
